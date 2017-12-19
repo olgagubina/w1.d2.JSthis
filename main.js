@@ -18,13 +18,23 @@ var coffeeShop = {
   },
 
   makeDrink: function (drinkType) {
-    for (drink in this.drinkRequirements) {
-      if(drinkType === drink){
-        this.beans = this.beans - this.drinkRequirements.drink;
-      }else {
-        alert("Sorry, we don't make" + drinkType);
-        break;
+    for (var drink in this.drinkRequirements) {
+      var check = false;
+      if (drinkType === drink){
+        this.beans = this.beans - this.drinkRequirements[drink];
+        if (this.beans < 0) {
+          alert("Sorry, we're all out of beans!");
+        check = true;
+        return;
+        } else {
+          alert("There are " + this.beans + " beans left.");
+        check = true;
+        return;
+        }
       }
+    }
+    if (check === false) {
+      alert ("Sorry, we don't make " + drinkType);
     }
   }
 }
