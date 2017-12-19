@@ -1,4 +1,4 @@
-var coffeeShop = {
+var coffeeShop1 = {
   beans: 40,
 
   drinkRequirements: {
